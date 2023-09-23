@@ -25,7 +25,7 @@ if you encounter the error where it still can’t find opencv.pc, you might want
 Now try to compile darknet again but first you will need to change the option `opencv=1` in the Makefile. When you try to run the make command you might get the following error if you are using opencv version 4.
 `error: #error "OpenCV 4.x+ requires enabled C++11 support"`
 
-To solve this you will need to edit the Makefile by adding the -std=c++11 in the following line:
+To solve this you will need to edit the Makefile by adding the `-std=c++11` in the following line:
 `CPP=g++ -std=c++11`
 
 
