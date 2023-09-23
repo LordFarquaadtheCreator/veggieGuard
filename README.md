@@ -1,7 +1,7 @@
 # veggieGuard
-openCV application that indentifies and notifies users when a perishable is about to expire in a fridge
+Computer vision application that indentifies new items in a fridge and notifies users when a perishable is about to expire
 
-# Download YOLO (via Darknet)
+# Download YOLO (via [Darknet](https://pjreddie.com/darknet/install/#cuda))
 - goto [darknet.yolo](https://pjreddie.com/darknet/yolo/) and download yolo
 ```
 git clone https://github.com/pjreddie/darknet
@@ -24,6 +24,7 @@ make
 - `cd build_opencv`
 - `cmake -DCMAKE_BUILD_TYPE=Release -D OPENCV_GENERATE_PKGCONFIG=ON -DBUILD_EXAMPLES=ON -D CMAKE_INSTALL_PREFIX=/usr/local ../opencv`
     - you will need `cmake` downloaded for this
+    - `brew install cmake`
 - `make -j7`
 - `sudo make install`
 - `pkg-config --cflags opencv4`
