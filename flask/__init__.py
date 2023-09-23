@@ -66,13 +66,13 @@ def register():
         return redirect(url_for('mainpage'))
 
     return render_template('signup.html')
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
         passw = request.form.get('passw')  # Rename to "password" for clarity
-
+        print(email)
+        print(passw)
         db = get_db()
         cursor = db.cursor()
 
@@ -84,14 +84,15 @@ def login():
             return render_template('error.html')
 
         # Compare the provided password with the password stored in the database
-        if user['passw'] != passw:
+        if user['passw'] == passw:  # Assuming both are plain text
+            # Store user information in the session
+            session['user_id'] = user['id']
+            return redirect(url_for('mainpage'))
+        else:
             return render_template('error.html')
 
-        # Store user information in the session
-        session['user_id'] = user['id']
-        return redirect(url_for('mainpage'))
-
     return render_template('login.html')
+
 
 @app.route('/')
 def mainpage():
