@@ -48,7 +48,22 @@
             videoElement.classList.add('invisible');
         }
     }
+
+    function getClassifications(imgPath){
+        fetch('http://127.0.0.1:5500/flask/templates/analyze', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ imgPath }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.result);
+            })
+            .catch(error => {
+                console.error('Error calling Python analyze function:', error);
+            });
+    }
+    console.log(getClassifications('/Users/fahadfaruqi/Desktop/veggieGuard/darknet/data/dog.jpg'))
 </script>
-    <!-- const code ='<video id="live-camera" autoplay></video><script src="feature.js">\</script>';
-    const videoElement = document.getElementById("video");
-    videoElement.innerHTML = videoCode; -->
