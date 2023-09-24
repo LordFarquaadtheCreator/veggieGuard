@@ -1,10 +1,11 @@
 import subprocess, os, re
-from flask import Flask, request, jsonify
+
+# from flask import Flask, request, jsonify
 
 
 def run_darknet(image_path):
     # Specify the path to the darknet executable and your YOLO configuration file
-    os.chdir("/Users/fahadfaruqi/Desktop/veggieGuard/darknet")
+    os.chdir("./darknet")
     darknet_cmd = "./darknet detect cfg/yolov3.cfg yolov3.weights"
 
     # Call darknet using subprocess and capture its output
@@ -54,12 +55,8 @@ def parse_list_entry(entry):
         return None
 
 
-app = Flask(__name__)
-import json
-
-
-app.route("/analyze", methods=["POST"])
 def analyze(image_path="data/food.png"):
+    image_path = "data/food.png"
     results = run_darknet(image_path)
 
     if results is not None:
@@ -69,7 +66,8 @@ def analyze(image_path="data/food.png"):
             object_map.append(parse_list_entry(result))
 
         # Print or use the list as needed
-        return json.dumps(object_map)
+        print(object_map)
+        return object_map
 
 
 analyze()

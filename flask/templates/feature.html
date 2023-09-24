@@ -22,6 +22,7 @@
         <div id="video" class="col-6 center">
             <button id="videoButton" onclick="addVideo()">Live Video!</button>
             <video id="live-camera" class="invisible" autoplay></video><script src="feature.js"></script>
+            <button>Stop Video</button>
         <div id="video"></div>
         </div>
         <div id="upload" class="col-6 center">
@@ -50,12 +51,11 @@
     }
 
     function getClassifications(imgPath){
-        fetch('http://127.0.0.1:5500/flask/templates/analyze', {
-            method: "POST",
+        fetch('http://127.0.0.1:5500/analyze', {
+            method: "GET",
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ imgPath }),
         })
             .then(response => response.json())
             .then(data => {
