@@ -1,7 +1,218 @@
+<!DOCTYPE html>
+<html>
 <head>
 	<title>Sheet Music Scanner</title>
-</body>
-Hello, world
+
+	<style>
+		body {
+			font-family: Verdana, sans-serif;
+		    background: linear-gradient(to right, #5D536B, #7D6B91, #989FCE);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+			color: #fff;
+		}
+		@keyframes gradient {
+    	0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+		}
+
+		.navbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			color: #fff;
+			padding: 20px;
+		}
+
+		.navbar a {
+			color: #fff;
+			text-decoration: none;
+			margin-left: 20px;
+			font-size: 20px;
+		}
+
+		.navbar a:hover {
+			color: #347FC4;
+		}
+
+		h1 {
+			text-align: center;
+			color: #fff;
+			margin-top: 50px;
+			opacity: 0;
+			animation: fade-in 1.5s ease-in-out forwards;
+		}
+		
+		@keyframes fade-in {
+			from { opacity: 0; }
+			to { opacity: 1; }
+		}
+
+		label {
+ 			padding: 20px 0;
+			color:#fff;
+		}
+
+		p {
+			text-align: center;
+			color: #fff;
+			margin-top: 20px;
+			font-size: 18px;
+			animation: slide-up 1.5s ease-in-out forwards;
+			margin-bottom: 100px;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+			margin-bottom: 50px;
+			transform: translateY(50px);
+			opacity: 0;
+			animation: slide-up 1.5s ease-in-out forwards;
+		}
+		
+		@keyframes slide-up {
+			from { transform: translateY(50px); opacity: 0; }
+			to { transform: translateY(0); opacity: 1; }
+		}
+
+		input[type=file] {
+			margin-bottom: 20px;
+			padding: 10px;
+			border: none;
+			background-color: #fff;
+			color: #272838;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+			border-radius: 4px;
+		}
+
+		input[type=submit] {
+			padding: 10px 20px;
+			border: none;
+			background-color: #272838;
+			color: #fff;
+			font-size: 18px;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s ease-in-out;
+		}
+
+		input[type=submit]:hover {
+			background-color: #347FC4;
+		}
+		.muzieknootjes {
+			display: block;
+			margin: auto;
+			position: fixed;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 50%;
+			min-width: 300px;
+			height: 400px;
+			border: 0px solid #000;
+			margin-top: 300px;
+		  }
+	
+          .noot-1,
+          .noot-2,
+          .noot-3,
+          .noot-4 {
+            position: absolute;
+            animation: notes 2s infinite linear;
+            font-size: 35px;
+            opacity: 0;
+          }
+          
+          .noot-1 {
+            top: 60px;
+            left: 0;
+            animation-delay: 0.5s;
+          }
+          
+          .noot-2 {
+            top: 30px;
+            left: 30%;
+            animation-delay: 1s;
+          }
+          
+          .noot-3 {
+            top: 90px;
+            left: 60%;
+            animation-delay: 1.5s;
+          }
+          
+          .noot-4 {
+            top: 40px;
+            left: 90%;
+            animation-delay: 2s;
+          }
+          
+          @keyframes notes {
+            0% {
+              transform: scale(1) translate(0, 0);
+              opacity: 0;
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.5) translate(50%, -50%);
+            }
+            80% {
+              opacity: 0;
+              transform: scale(1.5) translate(100%, -100%);
+            }
+            100% {
+              transform: scale(1.5) translate(100%, -100%);
+              opacity: 0;
+            }
+          }
+ 
+	</style>
+
+</head>
+
+<body>
+	<nav class="navbar">
+		<div>
+			<a href="#">Home</a>
+			<a href="/userdashboard">Dashboard</a>
+		</div>
+			<a href="/login">{{login_message}}</a>
+	</nav>
+	<h1>Sheet Music Scanner</h1>
+	<div id="content">
+		<form action="/" method="POST" enctype="multipart/form-data">
+			<label for="image-upload">Upload a JPEG image of your sheet music:</label>
+			<input type="file" accept="image/jpeg" id="image-upload" name="image-upload" value="image-upload" />
+			<input type="submit" value = "image"/>
+		</form>
+		<p id="desc">Takes a JPEG of sheet music and converts into a MIDI file</p>
+	</div>
+	<h2>{{message}}</h2>
+	<p1>
+	<div class="muzieknootjes">
+        <div class="noot-1">
+        &#9835; &#9833;
+      </div>
+      <div class="noot-2">
+        &#9833;
+      </div>
+      <div class="noot-3">
+        &#9839; &#9834;
+      </div>
+      <div class="noot-4">
+        &#9834;
+      </div>
+      </div></p1>
 </body>
 
 

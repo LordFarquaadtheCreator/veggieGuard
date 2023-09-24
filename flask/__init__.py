@@ -8,10 +8,8 @@ import sqlite3
 import os
 from helpers import login_required
 from flask_session import Session
-import subprocess, os, re, json
 
-# account_sid = os.environ['AC8ef87725499512171f849e7a4beb8dc0']
-import imageClassification
+#account_sid = os.environ['AC8ef87725499512171f849e7a4beb8dc0']
 
 app = Flask(__name__)
 debug = True
@@ -19,8 +17,7 @@ app.secret_key = urandom(24)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-DATABASE = "columbia.db"
-
+DATABASE = 'columbia.db'
 
 def get_db():
     db = getattr(g, "_database", None)
@@ -35,6 +32,31 @@ def close_db(exception):
     db = getattr(g, "_database", None)
     if db is not None:
         db.close()
+@app.route('/', methods=['GET','POST'])
+def upload_file():
+    if request.method == 'POST':
+        # Check if the POST request has a file part
+        if 'file' not in request.files:
+            return redirect(request.url)
+
+        file = request.files['image-upload']
+
+        # If the user does not select a file, the browser sends an empty file
+        if file.filename == '':
+            return redirect(request.url)
+
+        if file:
+            # Ensure the filename is secure (remove unsafe characters)
+            filename = secure_filename(file.filename)
+
+            # Save the uploaded file to the specified folder
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+            # Optionally, you can return a message indicating the upload was successful
+            return 'File uploaded successfully'
+    else: 
+        return render_template('mainpage.html')
+
 
 
 @app.route("/analyze", methods=["GET"])
@@ -123,13 +145,12 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/")
+@app.route('/')
 def mainpage():
-    if "user_id" not in session:
-        return redirect(url_for("login"))
-
-    return render_template("mainpage.html")
-
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    
+    return render_template('mainpage.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
