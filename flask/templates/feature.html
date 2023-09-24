@@ -50,12 +50,11 @@
     }
 
     function getClassifications(imgPath){
-        fetch('http://127.0.0.1:5500/flask/templates/analyze', {
-            method: "POST",
+        fetch('http://127.0.0.1:5500/analyze', {
+            method: "GET",
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ imgPath }),
         })
             .then(response => response.json())
             .then(data => {

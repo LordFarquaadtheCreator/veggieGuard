@@ -58,7 +58,7 @@ app = Flask(__name__)
 import json
 
 
-app.route("/analyze", methods=["POST"])
+@app.route("/analyze", methods=["GET"])
 def analyze(image_path="data/food.png"):
     results = run_darknet(image_path)
 
