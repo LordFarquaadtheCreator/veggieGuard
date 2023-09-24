@@ -3,6 +3,7 @@ from flask import session
 from flask import request, render_template, Flask, redirect, url_for, make_response, g
 from os import urandom
 import sqlite3
+from werkzeug.utils import secure_filename
 
 # from pymongo.errors import ConnectionFailure
 import os
