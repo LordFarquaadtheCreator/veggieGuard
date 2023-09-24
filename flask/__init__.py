@@ -18,7 +18,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 DATABASE = 'columbia.db'
-UPLOAD_FOLDER = '/UPLOAD_FOLDER'
+UPLOAD_FOLDER = 'UPLOAD_FOLDER'
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
@@ -34,14 +34,15 @@ def close_db(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
-@app.route('/', methods=['GET','POST'])
+
+@app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # Check if the POST request has a file part
-        if 'file' not in request.files:
+        if 'image-upload' not in request.files:  # Match the HTML form name
             return redirect(request.url)
 
-        file = request.files['image-upload']
+        file = request.files['image-upload']  # Match the HTML form name
 
         # If the user does not select a file, the browser sends an empty file
         if file.filename == '':
@@ -58,7 +59,6 @@ def upload_file():
             return 'File uploaded successfully'
     else: 
         return render_template('mainpage.html')
-
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
