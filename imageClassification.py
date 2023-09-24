@@ -53,8 +53,7 @@ def parse_list_entry(entry):
         return None
 
 
-def analyze(image_path):
-    image_path = "data/food.png"
+def analyze(image_path="data/food.png"):
     results = run_darknet(image_path)
 
     if results is not None:
@@ -66,3 +65,4 @@ def analyze(image_path):
         # Print or use the list as needed
         print(object_map)
         return object_map
+analyze()
