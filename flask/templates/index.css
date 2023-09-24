@@ -1,0 +1,113 @@
+header{
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: stretch;
+  font-weight: bold;
+  box-shadow: 0 0 25px 0 black;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+header * {
+  list-style: none;
+  display: inline;
+}
+header li {
+  display: flexbox;
+  justify-content: center;
+  align-items:end;
+  
+}
+header li a {
+  color: black;
+  text-decoration: none;
+}
+header li:hover {
+  text-decoration: underline;
+}
+.logo{
+    width: 35px;
+    float: left;
+}
+
+.middle{
+    display: flex;
+    align-items:center;
+}
+
+.home{
+  margin: 4rem;
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  font-size: 35px;
+}
+
+.slide-from-right-anim {
+	-webkit-animation: slide-from-right-anim 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-from-right-anim 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+ @-webkit-keyframes slide-from-right-anim {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-from-right-anim {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+
+.slide-from-left-anim {
+    -webkit-animation: slide-from-left-anim 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-from-left-anim 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+ @-webkit-keyframes slide-from-left-anim {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-from-left-anim {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}

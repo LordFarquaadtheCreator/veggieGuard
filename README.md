@@ -13,7 +13,13 @@ make
 - this will download test data, which can be tested via the `darknet/data` folder
 - to run a test of it (from the darknet folder) you can run `./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg`
 
-# [Download OpenCV](https://efcomputer.net.au/blog/4-steps-to-install-darknet-with-cuda-and-opencv-for-realtime-object-detection/) 
+
+# How It Works
+
+
+
+# Optional: Future Goals for LIVE Computer Vision
+## [Download OpenCV](https://efcomputer.net.au/blog/4-steps-to-install-darknet-with-cuda-and-opencv-for-realtime-object-detection/) 
 
 - `cd $home`
 - `mkdir OpenCV`
@@ -29,7 +35,7 @@ make
 - `sudo make install`
 - `pkg-config --cflags opencv4`
 
-## Try to compile darknet again
+### Try to compile darknet again
 if you encounter the error where it still can’t find opencv.pc, you might want to check that you have the opencv4.pc in the following location
 `ls /usr/local/lib/pkgconfig/opencv4.pc`
 - if you do then just copy opencv4 to opencv by using the following command
@@ -43,5 +49,5 @@ To solve this you will need to edit the Makefile by adding the `-std=c++11` in t
 
 ### any errors that come up can be googled! (That's how I fixed it!)
 
-# Download CUDA
+## Download CUDA
 
