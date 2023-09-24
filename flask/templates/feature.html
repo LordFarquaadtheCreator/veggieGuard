@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    .center{
+        text-align: center;
+    }
+    .invisible{
+        display: none;
+    }
+    .visible{
+        display: show !important;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Camera Feed</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <video id="live-camera" autoplay></video>
-    <script src="feature.js"></script>
+    <div class="row">
+        <div class="col-6 center">
+            <button id="videoButton" onclick="addVideo()">Live Video!</button>
+            <video id="live-camera" class="invisible" autoplay></video><script src="feature.js"></script>
+        <div id="video"></div>
+        </div>
+        <div class="col-6 center">
+            <button>Upload Picture</button>
+        </div>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
+<script>
+    // const populateButton = document.getElementById("video");
+    // populateButton.addEventListener("click", addVideo);
+    function addVideo(){
+        const videoElement = document.getElementById("live-camera");
+        if(videoElement.classList.length > 0){
+            videoElement.classList.remove('invisible');
+        }
+        else{
+            videoElement.classList.add('invisible');
+        }
+    }
+</script>
+    <!-- const code ='<video id="live-camera" autoplay></video><script src="feature.js">\</script>';
+    const videoElement = document.getElementById("video");
+    videoElement.innerHTML = videoCode; -->
