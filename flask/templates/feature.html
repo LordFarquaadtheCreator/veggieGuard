@@ -22,7 +22,6 @@
         <div id="video" class="col-6 center">
             <button id="videoButton" onclick="addVideo()">Live Video!</button>
             <video id="live-camera" class="invisible" autoplay></video><script src="feature.js"></script>
-            <button>Stop Video</button>
         <div id="video"></div>
         </div>
         <div id="upload" class="col-6 center">
@@ -49,6 +48,7 @@
             videoElement.classList.add('invisible');
         }
     }
+    
 
     function getClassifications(imgPath){
         fetch('http://127.0.0.1:5500/analyze', {

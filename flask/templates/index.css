@@ -82,6 +82,7 @@ header li a {
 }
 header li:hover {
   text-decoration: underline;
+  color:lightslategray
 }
 .logo{
     position: relative;

@@ -1,7 +1,10 @@
 # veggieGuard
 Computer vision application that indentifies new items in a fridge and notifies users when a perishable is about to expire
 
-# Download YOLO (via [Darknet](https://pjreddie.com/darknet/install/#cuda))
+# <span style="color:red">TO RUN READ THIS.</span>
+you MUST download YOLO as shown below into this repo (folder darknet should exist in the repo)
+
+## Download YOLO (via [Darknet](https://pjreddie.com/darknet/install/#cuda))
 - goto [darknet.yolo](https://pjreddie.com/darknet/yolo/) and download yolo
 ```
 git clone https://github.com/pjreddie/darknet
