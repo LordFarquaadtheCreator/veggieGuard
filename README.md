@@ -1,8 +1,14 @@
 # veggieGuard
 Computer vision application that indentifies new items in a fridge and notifies users when a perishable is about to expire
 
-# <span style="color:red">TO RUN READ THIS.</span>
-you MUST download YOLO as shown below into this repo (folder darknet should exist in the repo)
+# Inspiration
+Our teammates are all college students who are always busy with school and work. 
+We often forgot what we had in our fridge and bought food we already had.
+It is not only bad for our wallets but also for the environment. Wasted food in the US alone produces 170 million metric tons of co2 per year.
+
+# Output
+The application returns the fruits classified and confidence percentage.
+<span style="color:red"></span>
 
 ## Download YOLO (via [Darknet](https://pjreddie.com/darknet/install/#cuda))
 - goto [darknet.yolo](https://pjreddie.com/darknet/yolo/) and download yolo
@@ -15,10 +21,6 @@ make
     - or [physically download it](https://pjreddie.com/media/files/yolov3.weights)
 - this will download test data, which can be tested via the `darknet/data` folder
 - to run a test of it (from the darknet folder) you can run `./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg`
-
-
-# How It Works
-
 
 
 # Optional: Future Goals for LIVE Computer Vision
@@ -49,8 +51,3 @@ Now try to compile darknet again but first you will need to change the option `o
 
 To solve this you will need to edit the Makefile by adding the `-std=c++11` in the following line:
 `CPP=g++ -std=c++11`
-
-### any errors that come up can be googled! (That's how I fixed it!)
-
-## Download CUDA
-
